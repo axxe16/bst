@@ -17,7 +17,7 @@ function bst_comment($comment, $args, $depth) {
 ?>
 <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
   <?php if ( 'div' != $args['style'] ) : ?>
-    <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+    <div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
   <?php endif; ?>
     <div class="comment-author vcard">
       <div style="width: 60px; float: left;">
@@ -34,7 +34,7 @@ function bst_comment($comment, $args, $depth) {
     <div class="row">
       <div class="col-sm-12">
         <hr/>
-      	<?php comment_text() ?>
+      	<?php comment_text(); ?>
       </div>  
     </div>
     <div class="reply">
