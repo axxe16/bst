@@ -1,24 +1,51 @@
 <?php
 
 function bst_setup() {
+	//aggiungo all'editor i fogli di stile usati dal tema in modo da avere una buona anteprima del eiaultato finale
 	add_editor_style('css/editor-style.css');
+	//aggiungo per i post il supporto all'immagine in evidenza
 	add_theme_support('post-thumbnails');
+	
+	//le dimensioni elencate di seguito determinano le dimensioni massime in pixel da utilizzare quando si aggiunge una immagine alla Libreria media
 	update_option('thumbnail_size_w', 170);
+	update_option('thumbnail_size_h', 170);
 	update_option('medium_size_w', 470);
+	update_option('medium_size_h', 470);
 	update_option('large_size_w', 970);
+	update_option('large_size_h', 970);
+	
 }
+// lancio la funzione di inizializzazione appena dichiarata
 add_action('init', 'bst_setup');
+
+
+	//aggiungo due dimensioni custom
+if ( function_exists( 'add_image_size' ) ) { 
+		add_image_size( 'category-thumb', 300, 9999 ); // larghezza 300 pixel (e altezza illimitata)
+		add_image_size( 'homepage-thumb', 220, 180, true ); // (ritagliata-croppata)
+	}	
+function custom_sizes( $sizes ) {
+	//aggiungo due dimensioni parsonalizzate rendendole utilizzabili nel media manager 	
+    return array_merge( $sizes, array(
+        'category-thumb' => __('Miniatura di categoria'),
+        'homepage-thumb' => __('Miniatura homepage')
+    ) );
+}
+add_filter( 'image_size_names_choose', 'custom_sizes' );
+
+//imposto l'immagine in rilievo ad una dimensione custom
+set_post_thumbnail_size( 150, 150, true ); // 50 pixel di larghezza per 50 pixel di altezza, ritagliata
 
 if (! isset($content_width))
 	$content_width = 600;
 
+//customizzo il link readmore dei post inserendo le classi di bootstrap
 function bst_excerpt_readmore() {
 	return '&nbsp; <a href="'. get_permalink() . '">' . '&hellip; ' . __('Read more', 'bst') . ' <i class="glyphicon glyphicon-arrow-right"></i>' . '</a></p>';
 }
 add_filter('excerpt_more', 'bst_excerpt_readmore');
 
 // Browser detection body_class() output
-
 function bst_browser_body_class( $classes ) {
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 	
@@ -72,8 +99,8 @@ if ( ! function_exists( 'bst_pagination' ) ) {
 			'total' => $wp_query->max_num_pages,
 			'mid_size' => 5,
 			'prev_next' => True,
-			'prev_text' => __('<i class="glyphicon glyphicon-chevron-left"></i> Newer'),
-			'next_text' => __('Older <i class="glyphicon glyphicon-chevron-right"></i>'),
+			'prev_text' => __('<i class="glyphicon glyphicon-chevron-left"></i> Newer','bst'),
+			'next_text' => __('Older <i class="glyphicon glyphicon-chevron-right"></i>','bst'),
 			'type' => 'list'
 		) );
 		$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination'>", $paginate_links );
