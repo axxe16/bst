@@ -97,9 +97,11 @@ if (get_field('background_statistiche')!='')
 else
 	$bgStat = get_template_directory_uri() . "/img/bgParallaxSample.jpg";
 ?>
-
-<div id="homeStat" class="container-fluid img-holder" data-image="<?php echo $bgStat; ?>" data-width="1024" data-height="600" data-extra-height="50"></div>
-
+<div id="homeStat">
+<div class="container-fluid img-holder" data-image="<?php echo $bgStat; ?>" data-width="1024" data-height="600" data-extra-height="50">
+</div>
+<img id="stat" src="<?php echo get_template_directory_uri() . "/img/stat.png"; ?>">
+</div>
 
 
 
@@ -174,13 +176,52 @@ if (get_field('background_citazione')!='')
 else
 	$bgQuote = get_template_directory_uri() . "/img/bgParallaxSample.jpg";
 ?>
-<div id="homeQuote" class="container-fluid img-holder margin-top-2" data-image="<?php echo $bgQuote; ?>" data-width="1024" data-height="600" data-extra-height="50"></div>
+<div id="homeQuote"> 
+<div class="container-fluid img-holder margin-top-2" data-image="<?php echo $bgQuote; ?>" data-width="1024" data-height="600" data-extra-height="100">
+</div>
+<blockquote><p>"<strong>Amate</strong> ciò che amano <strong>i giovani</strong>,<br> affinchè <strong>essi amino</strong> ciò che <strong>amate voi</strong>."</p>
+</blockquote>
+<p class="quoteAuthor">Don Bosco <small>Aforismi, Frasi e Pensieri</small></p>
+</div>
 <div class="container margin-top-1">
 	<div class="row">
     <h2 class="bigTitle"><i class="circle green"></i><strong>Social</strong> Networks</h2>
     <div class="col-md-4"><a href="<?php echo $linkBanner2; ?>"><img src="<?php the_field('r1_img_banner_2'); ?>" /></a>	</div>
     <div class="col-md-4"><a href="<?php echo $linkBanner2; ?>"><img src="<?php the_field('r1_img_banner_2'); ?>" /></a>	</div>
     <div class="col-md-4"><a href="<?php echo $linkBanner2; ?>"><img src="<?php the_field('r1_img_banner_2'); ?>" /></a>	</div>
+    </div>
+</div>
+
+<div class="container margin-top-1">
+	<div class="row">
+    <div class="col-md-4"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.994963077714!2d12.203872451359823!3d45.49004617899865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eb5c672f788d5%3A0x326c0113c67dbd58!2sIstituto+Salesiano+San+Marco!5e0!3m2!1sit!2sit!4v1447420022960" width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+    <div class="col-md-4">
+    <h3>Centralino</h3>
+    <p>T. 041 5498111 
+    Fax: 041 5498112
+    e-mail: info@issm.it</p>
+    
+    <h3>Segreteria CFP - ITT</h3>
+    <p>T: 041 5498200 | Fax: 041 5498198<br>
+    e-mail: cfpsanmarco@issm.it<br>
+    ittsanmarco@issm.it<br>
+    Orario apertura segreteria:<br>
+    LU – ME – GIO – VE<br>
+    08.00-11.15<br>
+    MARTEDI<br>
+    13.30-15.45</p>
+    
+    <h3>Segreteria FCS</h3>
+    <p>T. 041 5498161 | Fax: 041 5498198<br>
+    e mail: info.fcs@issm.it<br>
+    Orario apertura segreteria:<br>
+    LU – MA - ME – GIO – VE<br>
+    08.30-12.00/13.30-16.00</p>
+    </div>
+    <div class="col-md-4">
+    <h3>Contattaci</h3>
+    <?php echo do_shortcode('[contact-form-7 id="80" title="Contatto Footer"]'); ?>
+    </div>
     </div>
 </div>
 

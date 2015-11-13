@@ -1,6 +1,86 @@
+/* fonts */
+@font-face {
+    font-family: 'montserratultra_light';
+    src: url('../fonts/montserrat-ultralight-webfont.eot');
+    src: url('../fonts/montserrat-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-ultralight-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-ultralight-webfont.woff') format('woff'),
+         url('../fonts/montserrat-ultralight-webfont.ttf') format('truetype'),
+         url('../fonts/montserrat-ultralight-webfont.svg#montserratultra_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../fonts/montserrat-regular-webfont.eot');
+    src: url('../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-regular-webfont.woff') format('woff'),
+         url('../fonts/montserrat-regular-webfont.ttf') format('truetype'),
+         url('../fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../fonts/montserrat-light-webfont.eot');
+    src: url('../fonts/montserrat-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-light-webfont.woff') format('woff'),
+         url('../fonts/montserrat-light-webfont.ttf') format('truetype'),
+         url('../fonts/montserrat-light-webfont.svg#montserratlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'montserratbold';
+    src: url('../fonts/montserrat-bold-webfont.eot');
+    src: url('../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-bold-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-bold-webfont.woff') format('woff'),
+         url('../fonts/montserrat-bold-webfont.ttf') format('truetype'),
+         url('../fonts/montserrat-bold-webfont.svg#montserratbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'montserratblack';
+    src: url('../fonts/montserrat-black-webfont.eot');
+    src: url('../fonts/montserrat-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-black-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-black-webfont.woff') format('woff'),
+         url('../fonts/montserrat-black-webfont.ttf') format('truetype'),
+         url('../fonts/montserrat-black-webfont.svg#montserratblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
 /* preset */
 body * {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'montserratregular', sans-serif;
 }
 /* common */
 .margin-top-1 {
@@ -13,8 +93,18 @@ body * {
 	overflow: hidden;
 }
 .bigTitle {
+	font-family:montserratultra_light, sans-serif;
 	font-size: 40px;
 }
+.bigTitle strong {
+	font-family:montserratblack, sans-serif;
+	}
+h2 {
+	font-family:montserratultra_light, sans-serif;
+}
+h2 strong {
+	font-family:montserratblack, sans-serif;
+	}
 .bigText {
 	font-size: 25px;
 }
@@ -132,13 +222,17 @@ ul.responsive li a:hover {
 	color: #ed6362;
 }
 /* homeStats */
-#homeStat {
-	min-height: 400px;
-	background-color: red;
+#homeStat { position:relative;
 }
+#stat {position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+   left: 50%;}
+.imageHolder { background-color:#000;}
 .imageHolder img {
 	-webkit-filter: blur(5px);
 	filter: blur(5px);
+	opacity:0.5;
 }
 /* news carousel */
 ul.news-carousel li div{
@@ -149,3 +243,22 @@ ul.news-carousel li div{
 	overflow:hidden;
 	}
 ul.news-carousel li div p,ul.news-carousel li div h3 { white-space:normal!important;}
+
+/* homeQuotes */
+#homeQuote {position:relative; }
+#homeQuote p,#homeQuote p small {font-family:montserratultra_light, sans-serif;}
+#homeQuote p strong {font-family:montserratblack, sans-serif;}
+#homeQuote > div {}
+#homeQuote blockquote {position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+   left: 50%;
+  margin:0; border:none;
+  text-align:center;
+  color:#fff;
+  font-size:50px;
+  width:70%
+ }
+#homeQuote  .quoteAuthor {text-align:right; font-size:30px; bottom:20px; right:20px; position:absolute; font-family:montserratblack, sans-serif;}
+#homeQuote .quoteAuthor small,#homeQuote  .quoteAuthor { color:#fff; display:block;}
+#homeQuote .quoteAuthor small:before { content:normal;}
