@@ -96,11 +96,16 @@ if (get_field('background_statistiche')!='')
 	$bgStat = get_field('background_statistiche');
 else
 	$bgStat = get_template_directory_uri() . "/img/bgParallaxSample.jpg";
+	
+if (get_field('immagine_statistiche')!='') 
+	$imgStat = get_field('immagine_statistiche');
+else
+	$imgStat = get_template_directory_uri() . "/img/stat.png";	
 ?>
 <div id="homeStat">
 <div class="container-fluid img-holder" data-image="<?php echo $bgStat; ?>" data-width="1024" data-height="600" data-extra-height="50">
 </div>
-<img id="stat" src="<?php echo get_template_directory_uri() . "/img/stat.png"; ?>">
+<img id="stat" src="<?php echo $imgStat; ?>">
 </div>
 
 

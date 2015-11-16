@@ -74,7 +74,7 @@ function add_custom_taxonomies_gallery() {
 add_action( 'init', 'add_custom_taxonomies_gallery', 0 );
 
 
-// Custom type galleria
+// Custom type comingSoon
 function coming_soon_init() { 
   $labels = array(
     'name' => 'Coming Soon',
@@ -111,4 +111,44 @@ function coming_soon_init() {
   register_post_type( 'coming_soon', $args );
 }
 add_action( 'init', 'coming_soon_init' );
+
+
+// Custom type comingSoon
+function citazioni_init() { 
+  $labels = array(
+    'name' => 'Citazioni',
+    'singular_name' => 'Citazione',
+    'add_new' => 'Aggiungi Citazione',
+    'add_new_item' => 'Aggiungi Nuova Citazione',
+    'edit_item' => 'Modifica Citazione',
+    'new_item' => 'Nuova Citazione',
+    'all_items' => 'Vedi tutte le Citazioni',
+    'view_item' => 'Vedi Citazione',
+    'search_items' => 'Cerca Citazione',
+    'not_found' =>  'Nessuna Citazione',
+    'not_found_in_trash' => 'Nessuna Citazione nel cestino', 
+    'parent_item_colon' => '',
+    'menu_name' => 'Citazioni'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'menu_icon' => 'dashicons-format-aside',
+    'menu_position' => 21,
+    'show_ui' => true, 
+    'show_in_menu' => true, 
+    'query_var' => true,
+    'rewrite' => array( 'slug' => '' ),
+    'capability_type' => 'post',
+    'has_archive' => true, 
+    'hierarchical' => false,
+    'supports' => array( 'title', 'editor')
+  ); 
+  
+  register_post_type( 'citazioni', $args );
+}
+add_action( 'init', 'citazioni_init' );
+
 ?>
