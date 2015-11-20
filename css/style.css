@@ -156,7 +156,6 @@ h2 .circle {
 }
 #slider {
 	background-color: #ccc;
-	min-height: 500px;
 }
 /* banner Home */
 .banner a {
@@ -207,6 +206,8 @@ ul.responsive li a:hover {
 	color: #000;
 	display: inline-block;
 	margin-left: 20px;
+	width:90%;
+	vertical-align:text-top;
 }
 #coming-soon ul {
 	margin-left: 0;
@@ -215,7 +216,7 @@ ul.responsive li a:hover {
 #coming-soon li {
 	margin: 0;
 	padding: 0;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	list-style: none;
 }
 #coming-soon li:hover {
@@ -262,3 +263,14 @@ ul.news-carousel li div p,ul.news-carousel li div h3 { white-space:normal!import
 #homeQuote  .quoteAuthor {text-align:right; font-size:30px; bottom:20px; right:20px; position:absolute; font-family:montserratblack, sans-serif;}
 #homeQuote .quoteAuthor small,#homeQuote  .quoteAuthor { color:#fff; display:block;}
 #homeQuote .quoteAuthor small:before { content:normal;}
+
+
+
+.captionSlider {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 70%;
+    padding: 20px;
+	background-color:rgba(0,0,0,0.75);
+}

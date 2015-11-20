@@ -101,7 +101,7 @@ function coming_soon_init() {
     'show_ui' => true, 
     'show_in_menu' => true, 
     'query_var' => true,
-    'rewrite' => array( 'slug' => '' ),
+    'rewrite' => array( 'slug' => 'coming-soon' ),
     'capability_type' => 'post',
     'has_archive' => true, 
     'hierarchical' => false,

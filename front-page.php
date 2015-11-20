@@ -30,8 +30,8 @@
 	
 ?>
 <div class="wrapperSlider">
-<div id="slider" class="container">
-Qui lo slider
+<div id="slider">
+<?php echo do_shortcode('[new_royalslider id="1"]'); ?>
 </div>
 </div>
 <div class="container">
@@ -80,13 +80,10 @@ Qui lo slider
     <div id="coming-soon" class="row banner margin-top-1 bigText">
     	<div class="col-md-4"><img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/img/sample-coming-soon.jpg "></div>
         <div class="col-md-8">
-        <h2 class="bigTitle"><strong>Coming</strong> Soon</h2>
-        <ul class="margin-top-1">
-        	<li class="circle green"><a href="#"><strong>Risultati Finali</strong> per le classi prime e seconde CFP</a></li>
-            <li class="circle green"><a href="#"><strong>Risultati Finali</strong> per le classi prime e seconde CFP</a></li>
-            <li class="circle green"><a href="#"><strong>Risultati Finali</strong> per le classi prime e seconde CFP</a></li>
-            <li class="circle green"><a href="#"><strong>Risultati Finali</strong> per le classi prime e seconde CFP</a></li>
-        </ul>
+        <h2 class="bigTitle"><strong>Coming</strong> Soon</h2>        
+            <?php get_template_part('includes/loops/content', 'comingSoonFrontPage'); 
+			wp_reset_postdata();
+			?> 
         </div>
     </div>
 </div>
@@ -123,57 +120,10 @@ else
 <div class="margin-top-2">
 	<h2 class="text-center bigTitle"><strong>News</strong> Flow</h2>
     <div class="margin-top-1">
-   <ul class="cycle-slideshow responsive news-carousel margin-top-1" data-cycle-fx="carousel" data-pause-on-hover=true data-cycle-timeout=2000  data-cycle-carousel-fluid=false data-cycle-slides="li">
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/001.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/002.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/003.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/004.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/005.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/001.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>
-    <li><div>
-    <a href="#"><img height="200" width="300" src="<?php echo get_template_directory_uri(); ?>/img/002.jpg"></a>
-    <h3>Il pollicione d'oro 2015</h3>
-    <p>28/02/2015 - Segreteria</p>
-    <p>Donec aliquam lorem ac ligula porta efficitur. Duis ipsum dui, rutrum vitae lectus id, feugiat tincidunt leo. Mauris in urna hendrerit mi ultricies rhoncus a at enim.</p>
-    <p><a href="#">Leggi di più...</a></p></div>
-    </li>           
-</ul></div>
+   	<?php get_template_part('includes/loops/content', 'newsFrontPage'); 
+	wp_reset_postdata();
+	?>
+   	</div>
 </div>
 <?php 
 if (get_field('background_citazione')!='') 
@@ -184,9 +134,21 @@ else
 <div id="homeQuote"> 
 <div class="container-fluid img-holder margin-top-2" data-image="<?php echo $bgQuote; ?>" data-width="1024" data-height="600" data-extra-height="100">
 </div>
-<blockquote><p>"<strong>Amate</strong> ciò che amano <strong>i giovani</strong>,<br> affinchè <strong>essi amino</strong> ciò che <strong>amate voi</strong>."</p>
-</blockquote>
-<p class="quoteAuthor">Don Bosco <small>Aforismi, Frasi e Pensieri</small></p>
+
+<?php
+$args=array('post_type'=>'citazioni', 'orderby'=>'rand', 'posts_per_page'=>'1');
+$citazioni=new WP_Query($args);
+while ($citazioni->have_posts()) : $citazioni->the_post();
+$autore = get_field('autore');
+$riferimenti = get_field('riferimenti');
+?>
+
+    <blockquote><?php the_content(); ?></blockquote>
+    <p class="quoteAuthor"><?php echo $autore; ?><small><?php echo $riferimenti; ?></small></p>
+<?php
+endwhile;
+wp_reset_postdata();
+?>
 </div>
 <div class="container margin-top-1">
 	<div class="row">
