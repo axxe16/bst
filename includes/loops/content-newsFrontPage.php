@@ -10,9 +10,9 @@ If you require different templates for different post types, then simply duplica
 Alternatively, notice that index.php, category.php and single.php have a post_class() function-call that inserts different classes for different post types into the section tag (e.g. <section id="" class="format-aside">). Therefore you can simply use e.g. .format-aside {your styles} in css/bst.css style the different formats in different ways.
 */
 ?>
-<ul class="cycle-slideshow responsive news-carousel margin-top-1" data-cycle-fx="carousel" data-pause-on-hover=true data-cycle-timeout=2000  data-cycle-carousel-fluid=false data-cycle-slides="li">
+<ul class="cycle-slideshow responsive news-carousel margin-top-1" data-cycle-fx="carousel" data-pause-on-hover=true data-cycle-timeout=4000  data-cycle-carousel-fluid=false data-cycle-slides="li">
 <?php 
- $myposts = get_posts();
+$myposts = get_posts();
 foreach($myposts as $post) : ?>
 <li role="article" id="post_<?php the_ID()?>"><div>
     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(300,200)); ?></a>
