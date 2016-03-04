@@ -274,3 +274,8 @@ ul.news-carousel li div p,ul.news-carousel li div h3 { white-space:normal!import
     padding: 20px;
 	background-color:rgba(0,0,0,0.75);
 }
+
+
+/* home area genitori */
+.home #area-genitori h2 { margin-top:0;}
+.home .banner img {width:100%; height:auto;}
