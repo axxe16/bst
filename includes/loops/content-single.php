@@ -21,12 +21,11 @@ The Single Posts Loop
             </p>
         </header>
         <section>
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail('single-news', array( 'class' => 'single-news' )); ?>
             <?php the_content()?>
             <?php wp_link_pages(); ?>
         </section>
     </article>
-<?php comments_template('/includes/loops/comments.php'); ?>
 <?php endwhile; ?>
 <?php else: ?>
 <?php wp_redirect(get_bloginfo('siteurl').'/404', 404); exit; ?>

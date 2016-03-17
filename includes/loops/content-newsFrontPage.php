@@ -11,15 +11,24 @@ Alternatively, notice that index.php, category.php and single.php have a post_cl
 */
 ?>
 <ul class="cycle-slideshow responsive news-carousel margin-top-1" data-cycle-fx="carousel" data-pause-on-hover=true data-cycle-timeout=4000  data-cycle-carousel-fluid=false data-cycle-slides="li">
-<?php 
-$myposts = get_posts();
+<?php
+$args = array( 'posts_per_page' => 12); 
+$myposts = get_posts($args);
 foreach($myposts as $post) : ?>
 <li role="article" id="post_<?php the_ID()?>"><div>
-    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(300,200)); ?></a>
+    <a class="imgLink" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('miniature-home', array( 'class' => 'miniature-home' )); ?></a>
     <h3><a href="<?php the_permalink(); ?>"><?php the_title()?></a></h3>
-    <p><time  class="text-muted" datetime="<?php the_time('d-m-Y')?>"><?php the_time('jS F Y') ?></time></p>
-    <p><?php the_excerpt(); ?></p>
-    <p><a href="<?php the_permalink(); ?>">Leggi di più...</a></p></div>
+    <p><time  class="text-muted" datetime="<?php the_time('d-m-Y')?>"><?php the_time('j F Y') ?></time></p>
+	
+	<?php
+	//ripulisco e riduco lunghezza del contenuto
+	$content = strip_tags($post->post_content);
+	$short_content = substr($content, 0, 100);
+	if (strlen($content) > 100) $short_content .= " ...";
+    echo "<p>" . $short_content . "</p>\n";
+    ?>
+    
+    <p><a class="readMore" href="<?php the_permalink(); ?>">Leggi di più...</a></p></div>
     </li>
 <?php endforeach; ?>
 </ul>

@@ -7,7 +7,17 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_slug' 	=> 'opzioni-generali',
 		'capability'	=> 'manage_options',
 		'redirect'		=> false
-	));}
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Gestione Banner',
+		'menu_title'	=> 'Banner home',
+		'parent_slug'	=> 'opzioni-generali',
+	));
+	}
+
+
+
 
 //aggiungo tassonomie extra
 // Custom type galleria
@@ -151,4 +161,55 @@ function citazioni_init() {
 }
 add_action( 'init', 'citazioni_init' );
 
+//aggiungo un menu per il footer 
+function register_menu() {
+	register_nav_menu('footer-menu', __('Footer Menu'));
+}
+add_action('init', 'register_menu');
+
+
+//aggiungo dimensione personalizzate
+add_image_size( 'miniature-home',300,200,true);
+add_image_size( 'banner-home',1140,250,false);
+add_image_size( 'single-news',1680,800,true);
+add_image_size( 'normal-news',300,136,true);
+add_image_size( 'highlight-news',750,340,true);
+
+final class CsvToArray{
+ 	public static function open($file, $delimiter = ';'){
+ 		return self::csvArray($file, $delimiter);
+ 	}
+ 	private function csvArray($file, $delimiter)
+ 	{
+ 		$result = Array();
+ 		$size = filesize($file) + 1;
+ 		$file = fopen($file, 'r');
+ 		$keys = fgetcsv($file, $size, $delimiter);
+ 		while ($row = fgetcsv($file, $size, $delimiter))
+ 		{
+ 			for($i = 0; $i < count($row); $i++)
+ 			{
+ 				if(array_key_exists($i, $keys))
+ 				{
+ 					$row[$keys[$i]] = $row[$i];
+ 				}
+ 			}
+ 			$result[] = $row;
+ 		}
+ 		fclose($file);
+ 		return $result;
+ 	}
+ }
+
+
+function isWin()
+{
+    $sys = strtoupper(PHP_OS);
+ 
+    if(substr($sys,0,3) == "WIN")
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
 ?>

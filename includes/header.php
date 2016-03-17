@@ -7,22 +7,28 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<?php wp_head(); ?>
+    <script>
+		//preloader di pagina	
+	jQuery(window).load(function(){
+		jQuery('#preloader').fadeOut('slow',function(){jQuery(this).remove();});
+	});
+	</script>
 </head>
 
-<body <?php body_class(); ?>>
-<div id="fakeLoader"></div>
+<body <?php body_class(); ?>><div id="preloader"></div>
 <!--[if lt IE 8]>
 <div class="alert alert-warning">
 	You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
 </div>
 <![endif]-->
+<?php $imgHeader= get_field('immagine_testata', 'option'); ?>
 <?php $logo 	= get_field('logo', 'option'); ?>
 <?php $fb 		= get_field('facebook', 'option'); ?>
 <?php $tw 		= get_field('twitter', 'option'); ?>
 <?php $ist 		= get_field('instagram', 'option'); ?>
 <?php $you 		= get_field('youtube', 'option'); ?>
 <div class="topWrap bgRed">
-    <div class="container">
+    <div id="SN" class="container">
         <div class="row">
         	<div class="col-ms-2 col-md-offset-10 socalBadges">
                 <?php if ($fb != '') echo '<a href="'. $fb .'" target="_blank"><i class="fa fa-facebook"></i></a>'; ?>
@@ -36,7 +42,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6 logoColumn">
       <h1 id="site-title">
       	<a class="text-muted" href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
 		<?php 
@@ -44,12 +50,12 @@
 		if ($logo != '') { echo '<img class="imgLogo" width="300" src="'. $logo .'">';?>
 		<?php } else bloginfo('name'); ?></a>
       </h1>
+      
     </div>
+    <div class="col-sm-6 searchColumn" style="background-image:url(<?php echo $imgHeader; ?>)"><?php get_template_part('includes/navbar-search'); ?></div>
   </div>
 </div>
-
-
-<nav class="navbar ">
+<nav id="main-menu" class="navbar">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -69,7 +75,7 @@
                 'walker'            => new wp_bootstrap_navwalker())
             );
         ?>
-        <?php get_template_part('includes/navbar-search'); ?>
+        
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
